@@ -29,6 +29,8 @@ Once the file has at least 10000 lines, it is reasonable to begin training a
 language model based on it. To do so, run the following:
 
 ```bash
+# This command will take a while!
+$ docker pull docker.pkg.github.com/kvakil/adapt-lm/train-original:latest
 # Replace ~/.talon/ with your Talon home directory.
 $ ./tune.sh ~/.talon/adapt-log
 ```
