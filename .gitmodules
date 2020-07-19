@@ -1,0 +1,6 @@
+[submodule "train-original/kenlm"]
+	path = train-original/kenlm
+	url = https://github.com/kvakil/kenlm
+[submodule "train-original/DeepSpeech"]
+	path = train-original/DeepSpeech
+	url = https://github.com/kvakil/DeepSpeech
