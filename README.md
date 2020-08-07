@@ -10,6 +10,10 @@ can be adapted to work on Windows as well.
 
 ## Usage with [Talon Beta](https://talonvoice.com/)
 
+This tool can be used with some Talon speech recognition engines: particularly
+the default beta model (wav2letter) and the sconv-beta series. Other speech
+recognition engines are not supported.
+
 **WARNING:** This is a third-party tool and not officially blessed by the Talon
 creators. It may not work in future versions. If you are reporting an issue to
 upstream Talon, please make sure to reproduce the issue with one of the
