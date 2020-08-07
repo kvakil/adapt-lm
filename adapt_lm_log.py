@@ -1,5 +1,4 @@
-from talon import Context, Module, actions, speech_system
-from talon import speech_system
+from talon import Module, actions, speech_system
 from talon_init import TALON_HOME
 
 OUTPUT_FILE = TALON_HOME / "adapt-log"
