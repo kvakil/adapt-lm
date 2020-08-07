@@ -15,15 +15,32 @@ creators. It may not work in future versions. If you are reporting an issue to
 upstream Talon, please make sure to reproduce the issue with one of the
 included langage models. Thanks!
 
+### Gathering Data
+
 In order to record your speech patterns so that a custom language model can be
-trained, you need to accumulate data of your typical sentences. The script
-`adapt_lm_log.py` logs your sentences into an `adapt-log` file. Copy it into
+trained, you need to accumulate data of your typical sentences. There are two
+possible ways to do so:
+
+1. The included script `adapt_lm_log.py` logs your sentences into an `adapt-log` file. Copy it into
 your Talon user directory. On macOS, this is typically `~/.talon/user`:
 
 ```bash
 # Replace ~/.talon/user with your Talon user directory.
 $ cp adapt_lm_log.py ~/.talon/user
 ```
+
+2. If you already use `record.py` (from the Talon beta Slack), you can gather
+a log from the filenames of the saved files:
+
+```bash
+$ ls -1 ~/.talon/recordings | awk '{ gsub("(-[0-9]+)?.flac", ""); print }' > ~/.talon/record-log
+```
+
+The first method is recommended, since it lets you edit incorrect entries
+by hand and is also less wasteful from a resource perspective. The second
+method is good if you already have a lot of recordings you want to include.
+
+### Tuning
 
 Once the file has at least 10000 lines, it is reasonable to begin training a
 language model based on it. To do so, run the following:
@@ -32,6 +49,7 @@ language model based on it. To do so, run the following:
 # This command will take a while!
 $ docker pull docker.pkg.github.com/kvakil/adapt-lm/train-original:latest
 # Replace ~/.talon/ with your Talon home directory.
+# (This command will probably take longer.)
 $ ./tune.sh ~/.talon/adapt-log
 ```
 
